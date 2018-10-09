@@ -3,12 +3,13 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /**
- * @author TODO: please add student ID and name here
+ * B0341058 ®}¸t¶v
  * Try to write some comments for your codes (methods, 15 points)
  */
 public class HW2 {
 
 	public static void main(String[] args) {
+		//«Ø¥ß¿é¤Jªºª«¥ó, ¨Ã¥Htestn «O¦s¿é¤Jªº­È
 		Scanner sc = new Scanner(System.in);
 		System.out.println("input N (deck of cards):");
 		String testn= sc.nextLine(); 
@@ -18,16 +19,24 @@ public class HW2 {
 		//TODO: please check your output, make sure that you print all cards on your screen (10 points)
 		deck.printDeck();
 		
+		
+		
+		
+		
+		
+		
 		if(isAllCardsCorrect(deck.getAllCards(),nDeck)){
 			System.out.println("Well done!");
 		}else{
 			System.out.println("Error, please check your sourse code");
 		}
 	}
+	
+
 	/**
 	 * This method is used for checking your result, not a part of your HW2
-	 * @param allCards æ‰€æœ‰çš„ç‰Œ
-	 * @param nDeck ç¸½å…±æœ‰å¹¾å‰¯ç‰Œ
+	 * @param allCards ©Ò¦³ªºµP
+	 * @param nDeck Á`¦@¦³´X°ÆµP
 	 * @return
 	 */
 	private static boolean isAllCardsCorrect(ArrayList<Card> allCards,int nDeck){
@@ -62,15 +71,29 @@ public class HW2 {
 		return isCorrect;
 	}
 
+
 }
+	
 /**
- * Description: TODO: please add description here
+ * Description: TODO: ¥Î¨Ó¶i¦æ§â±Æ¬~¤JµP°ïªº°Ê§@
  */
+//¥Î¨Ó¶i¦æ§â±Æ¬~¤JµP°ïªº°Ê§@
 class Deck{
 	private ArrayList<Card> cards;
+	private int i,j,k;
 	//TODO: Please implement the constructor (30 points)
 	public Deck(int nDeck){
-		cards=new ArrayList<Card>();
+		cards=new ArrayList<Card>();	
+		for(i=0;i<nDeck;i++) {
+			for(j=1;j<5;j++) {
+				for(k=1;k<14;k++){
+				Card card=new Card(j,k);
+				cards.add(card); 
+				System.out.println(card);
+				}
+			}
+		}
+		//cards.add(card);
 		//1 Deck have 52 cards, https://en.wikipedia.org/wiki/Poker
 		//Hint: Use new Card(x,y) and 3 for loops to add card into deck
 		//Sample code start
@@ -83,18 +106,22 @@ class Deck{
 	public void printDeck(){
 		//Hint: print all items in ArrayList<Card> cards, 
 		//TODO: please implement and reuse printCard method in Card class (5 points)
-
+		for(int i =0;i<cards.size();i++)
+		System.out.println(cards.get(i));
 	}
+		
 	public ArrayList<Card> getAllCards(){
 		return cards;
 	}
 }
 /**
- * Description: TODO: please add description here
+ * Description:±Nªá¦âªº½s½X§ï¬°¤å¦r¡A¨Ãprint¥X¨Ó
  */
 class Card{
 	private int suit; //Definition: 1~4, Clubs=1, Diamonds=2, Hearts=3, Spades=4
 	private int rank; //1~13
+	private String[] arrayS = {"Clubs", "Diamonds", "Heart", "spades"};
+	private String res1,res2;
 	/**
 	 * @param s suit
 	 * @param r rank
@@ -102,11 +129,16 @@ class Card{
 	public Card(int s,int r){
 		suit=s;
 		rank=r;
-	}	
+		res1= arrayS[s-1];
+		res2= Integer.toString(r);
+		printCard();
+	}
+	
 	//TODO: 1. Please implement the printCard method (20 points, 10 for suit, 10 for rank)
+	
 	public void printCard(){
 		//Hint: print (System.out.println) card as suit,rank, for example: print 1,1 as Clubs Ace
-
+		System.out.println(res1+","+res2);
 	}
 	public int getSuit(){
 		return suit;
