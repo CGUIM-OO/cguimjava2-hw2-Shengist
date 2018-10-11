@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import com.sun.jdi.Value;
+
 /**
  * B0341058 ®}¸t¶v
  * Try to write some comments for your codes (methods, 15 points)
@@ -88,8 +90,9 @@ class Deck{
 			for(j=1;j<5;j++) {
 				for(k=1;k<14;k++){
 				Card card=new Card(j,k);
-				cards.add(card); 
-				System.out.println(card);
+				cards.add(card);
+				//System.out.println(card);
+				//card.printCard();
 				}
 			}
 		}
@@ -106,8 +109,9 @@ class Deck{
 	public void printDeck(){
 		//Hint: print all items in ArrayList<Card> cards, 
 		//TODO: please implement and reuse printCard method in Card class (5 points)
-		for(int i =0;i<cards.size();i++)
-		System.out.println(cards.get(i));
+		for(Card value:cards) {
+		 value.printCard();
+		}
 	}
 		
 	public ArrayList<Card> getAllCards(){
@@ -131,7 +135,7 @@ class Card{
 		rank=r;
 		res1= arrayS[s-1];
 		res2= Integer.toString(r);
-		printCard();
+		//printCard();
 	}
 	
 	//TODO: 1. Please implement the printCard method (20 points, 10 for suit, 10 for rank)
